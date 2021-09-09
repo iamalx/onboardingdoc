@@ -1,0 +1,64 @@
+<div class="container col-md-6">
+
+  <!--Template Driven Form or Model Driven Form?-->
+  <form [formGroup]="codeForm" (ngSubmit)="onSubmit()">
+    <div>
+
+      <div class="card info-card col-md-6">
+        <h2>Enter Code</h2>
+
+        <ol>
+          <li>Connect to Wifi</li>
+          <li>Click on start app and set up app.</li>
+          <li>Go to session(Blue wave form) page and then double click to go to settings.
+          </li>
+          <li>Scrool down to where it says "View App Tour"</li>
+          <li>Bellow it you should see a code in blue color. </li>
+          <li>Enter that code in here to give you the onboargin link.</li>
+          <li>Save that link.</li>
+          <li>View the document.</li>
+          <li>Scrool down to where it says "View App Tour"</li>
+        </ol>
+
+      </div>
+
+      <div class="form-group card col-md-6">
+        <div class="row">
+
+          <label class="md-check lead">
+          Enter Your APP TOUR code <br />
+          <input type="input" formControlName="code" name="code" />
+        </label>
+
+        </div>
+      </div>
+
+
+
+    </div>
+
+    <div *ngIf='group == "cntl" && submitted' class='highlight'>
+      Please use this link to view the onboarding document. Save this Link.
+      {{link}}
+    </div>
+    <div *ngIf='group == "xrtl" && submitted ' class='highlight'>
+      Please use this link to view the onboarding document. Save this Link.
+      {{link}}
+    </div>
+    <div *ngIf='group == "none"  && submitted ' class='highlight'>
+      Your code is not valid.
+    </div>
+
+    <button [disabled]='!codeForm.valid' type="submit" class="btn btn-primary pull-right">
+    Submit
+  </button>
+  </form>
+
+
+  <!-- <div *ngIf='submitted'>
+  1st: {{firstValuesSummary.total}}
+  2nd: {{secondValuesSummary.total}}
+  3rd: {{thirdValuesSummary.total}}
+
+</div> -->
+</div>
